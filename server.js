@@ -18,6 +18,7 @@ const allowedOrigins = [
   "https://vendor.rentwheels.shop",
   "https://user.rentwheels.shop",
   "https://573b0bb5.vehicle-rental-frontend-user.pages.dev",
+  "https://dfc1eec1.vehicle-rental-frontend-vendor.pages.dev",
   "http://localhost:5173"
 ];
 
