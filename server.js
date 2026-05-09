@@ -14,12 +14,19 @@ const app = express();
 app.set('trust proxy', 1);
 const server = http.createServer(app);
 
-const allowedOrigins = process.env.NODE_ENV === "production"
-  ? process.env.ALLOWED_ORIGINS?.split(",") || []
-  : ["http://localhost:3000", "http://localhost:3001", "http://127.0.0.1:3000", "http://127.0.0.1:3001"];
+const allowedOrigins = [
+  "https://vendor.rentwheels.shop",
+  "https://user.rentwheels.shop",
+  "https://573b0bb5.vehicle-rental-frontend-user.pages.dev",
+  "http://localhost:5173"
+];
 
 const io = new Server(server, {
-  cors: { origin: allowedOrigins, methods: ["GET", "POST"] },
+  cors: {
+    origin: allowedOrigins,
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
 });
 
 // Store io instance so controllers can emit events
